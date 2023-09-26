@@ -32,7 +32,7 @@ void bitonic_merge(int *e_m, size_t size, size_t start, size_t seq,
 		for (l = start; l < start + jump; l++)
 		{
 			if ((flow == UP && e_m[l] > e_m[l + jump]) ||
-			    (flow == DOWN && e_m[l] < e_m[l + jump]))
+					(flow == DOWN && e_m[l] < e_m[l + jump]))
 				swap_ints(e_m + l, e_m + l + jump);
 		}
 		bitonic_merge(e_m, size, start, jump, flow);

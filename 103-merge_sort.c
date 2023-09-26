@@ -10,25 +10,25 @@
  */
 void merge_subarr(int *e_m, int *buff, size_t front, size_t mid, size_t back)
 {
-    size_t l, s, d = 0; // Replaced 'k' with 'd'
+	size_t l, s, d = 0; // Replaced 'k' with 'd'
 
-    printf("Merging...\n[left]: ");
-    print_array(e_m + front, mid - front);
+	printf("Merging...\n[left]: ");
+	print_array(e_m + front, mid - front);
 
-    printf("[right]: ");
-    print_array(e_m + mid, back - mid);
+	printf("[right]: ");
+	print_array(e_m + mid, back - mid);
 
-    for (l = front, s = mid; l < mid && s < back; d++) // Replaced 'k' with 'd'
-        buff[d] = (e_m[l] < e_m[s]) ? e_m[l++] : e_m[s++];
-    for (; l < mid; l++)
-        buff[d++] = e_m[l];
-    for (; s < back; s++)
-        buff[d++] = e_m[s];
-    for (l = front, d = 0; l < back; l++)
-        e_m[l] = buff[d++];
+	for (l = front, s = mid; l < mid && s < back; d++) // Replaced 'k' with 'd'
+		buff[d] = (e_m[l] < e_m[s]) ? e_m[l++] : e_m[s++];
+	for (; l < mid; l++)
+		buff[d++] = e_m[l];
+	for (; s < back; s++)
+		buff[d++] = e_m[s];
+	for (l = front, d = 0; l < back; l++)
+		e_m[l] = buff[d++];
 
-    printf("[Done]: ");
-    print_array(e_m + front, back - front);
+	printf("[Done]: ");
+	print_array(e_m + front, back - front);
 }
 
 /**
@@ -40,15 +40,15 @@ void merge_subarr(int *e_m, int *buff, size_t front, size_t mid, size_t back)
  */
 void merge_sort_recursive(int *e_m, int *buff, size_t front, size_t back)
 {
-    size_t mid;
+	size_t mid;
 
-    if (back - front > 1)
-    {
-        mid = front + (back - front) / 2;
-        merge_sort_recursive(e_m, buff, front, mid);
-        merge_sort_recursive(e_m, buff, mid, back);
-        merge_subarr(e_m, buff, front, mid, back);
-    }
+	if (back - front > 1)
+	{
+		mid = front + (back - front) / 2;
+		merge_sort_recursive(e_m, buff, front, mid);
+		merge_sort_recursive(e_m, buff, mid, back);
+		merge_subarr(e_m, buff, front, mid, back);
+	}
 }
 
 /**
@@ -59,16 +59,16 @@ void merge_sort_recursive(int *e_m, int *buff, size_t front, size_t back)
  */
 void merge_sort(int *e_m, size_t size)
 {
-    int *buff;
+	int *buff;
 
-    if (e_m == NULL || size < 2)
-        return;
+	if (e_m == NULL || size < 2)
+		return;
 
-    buff = malloc(sizeof(int) * size);
-    if (buff == NULL)
-        return;
+	buff = malloc(sizeof(int) * size);
+	if (buff == NULL)
+		return;
 
-    merge_sort_recursive(e_m, buff, 0, size);
+	merge_sort_recursive(e_m, buff, 0, size);
 
-    free(buff);
+	free(buff);
 }

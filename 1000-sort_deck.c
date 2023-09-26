@@ -5,7 +5,8 @@
  * @str1: The first string.
  * @str2: The second string.
  *
- * Return: 0 if strings are equal, positive if str1 > str2, negative if str1 < str2.
+ * Return: 0 if strings are equal, positive if str1 > str2,
+ * negative if str1 < str2.
  */
 int _strcmp(const char *str1, const char *str2)
 {
@@ -58,7 +59,8 @@ char get_value(deck_node_t *card)
 }
 
 /**
- * insertion_sort_deck_kind - Sorts a deck of cards by kind using insertion sort.
+ * insertion_sort_deck_kind - Sorts a deck of cards by
+ * kind using insertion sort.
  * @deck: Pointer to the deck of cards to be sorted.
  */
 void insertion_sort_deck_kind(deck_node_t **deck)
@@ -87,7 +89,8 @@ void insertion_sort_deck_kind(deck_node_t **deck)
 }
 
 /**
- * insertion_sort_deck_value - Sorts a deck of cards by value using insertion sort.
+ * insertion_sort_deck_value - Sorts a deck of cards by
+ * value using insertion sort.
  * @deck: Pointer to the deck of cards to be sorted.
  */
 void insertion_sort_deck_value(deck_node_t **deck)
@@ -99,8 +102,8 @@ void insertion_sort_deck_value(deck_node_t **deck)
 		tmp = iter->next;
 		insert = iter->prev;
 		while (insert != NULL &&
-		       insert->card->kind == iter->card->kind &&
-		       get_value(insert) > get_value(iter))
+				insert->card->kind == iter->card->kind &&
+				get_value(insert) > get_value(iter))
 		{
 			insert->next = iter->next;
 			if (iter->next != NULL)
