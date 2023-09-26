@@ -10,7 +10,7 @@
  */
 void merge_subarr(int *e_m, int *buff, size_t front, size_t mid, size_t back)
 {
-	size_t l, s, d = 0; // Replaced 'k' with 'd'
+	size_t l, s, d = 0;
 
 	printf("Merging...\n[left]: ");
 	print_array(e_m + front, mid - front);
@@ -18,7 +18,7 @@ void merge_subarr(int *e_m, int *buff, size_t front, size_t mid, size_t back)
 	printf("[right]: ");
 	print_array(e_m + mid, back - mid);
 
-	for (l = front, s = mid; l < mid && s < back; d++) // Replaced 'k' with 'd'
+	for (l = front, s = mid; l < mid && s < back; d++)
 		buff[d] = (e_m[l] < e_m[s]) ? e_m[l++] : e_m[s++];
 	for (; l < mid; l++)
 		buff[d++] = e_m[l];
